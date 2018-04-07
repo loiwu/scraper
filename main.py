@@ -26,3 +26,9 @@ print(summary)
 link_box = soup.find('a', attrs={'class':'continue-reading-link'})
 link = link_box["href"]
 print(link)
+
+# open a csv file with append, so old data will not be erased
+
+with open('recent.csv', 'a') as csv_file:
+ writer = csv.writer(csv_file)
+ writer.writerow([title, published, summary, link, datetime.now()])
